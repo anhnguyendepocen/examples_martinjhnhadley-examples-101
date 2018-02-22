@@ -1,4 +1,4 @@
-The dataset in this folder is an anonymised version of a dataset from Dr. Felix Krawatzek and Dr. Gwendolyn Sasse deposited here: https://figshare.com/articles/German_Migrant_Letters_Complete_Corpus/4516772/3
+The dataset in this folder is an anonymised version of a dataset from Dr. Felix Krawatzek and Dr. Gwendolyn Sasse deposited here: https://doi.org/10.6084/m9.figshare.4516772
 
 The original dataset concerns letters sent between German migrants and their families in the 19th and 20th Centuries, as published about here https://doi.org/10.1007/s12286-018-0378-9.
 
