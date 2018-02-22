@@ -1,0 +1,1 @@
+This dataset concerns the relationships between characters in the Game of Thrones universe, collected from https://www.kaggle.com/mylesoneill/game-of-thrones and https://github.com/ShirinG/blog_posts_prep/tree/master/GoT.
