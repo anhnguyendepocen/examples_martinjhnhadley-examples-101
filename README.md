@@ -13,13 +13,15 @@ These datasets are (unless stated explicitly) **not** authored by me (Martin Joh
 
 # Working with these materials
 
-Download the contents of this repository to your local machine, the URL for this repository is 
+You will need to download the materials in this repository to your local computer, here's a short URL to get you to this page: [https://goo.gl/2LwAWh](https://goo.gl/2LwAWh).
 
-During the course you will need the materials in this repository ([https://github.com/martinjhnhadley/collated-rstats-training-materials](https://github.com/martinjhnhadley/collated-rstats-training-materials)). Here's a short URL [https://goo.gl/2LwAWh](https://goo.gl/2LwAWh).
-
-Click on "Clone or download" and select "Download as ZIP". Ensure to unzip the folders to a convenient location.
+Click on "Clone or download" and select "Download as ZIP".
 
 <img src="/download-repo.png" width="400">
+
+Extract the contents from the zip to a useful location (i.e. the desktop).
+
+**Windows Users**: You need to ensure you extract the contents of the zip, which can be achieved by right-clicking on the zip and selecting "Extract All".
 
 # About the author
 
