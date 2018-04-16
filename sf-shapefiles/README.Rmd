@@ -1,0 +1,25 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# sf-shapefiles
+
+This folder contains content designed to introduce the basics of using `sf` for GIS data processing in R.
+
+Please note that the folder contains a downloaded copy of shapefiles from http://www.naturalearthdata.com, the code for obtaining these is as follows:
+
+```{r, eval = FALSE}
+download.file(url = "http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip",
+              destfile = "data/world-shape-files.zip")
+unzip("data/world-shape-files.zip", exdir = "data/world-shape-files")
+unlink("data/world-shape-files.zip")
+```
