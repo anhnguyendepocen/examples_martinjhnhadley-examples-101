@@ -1,4 +1,4 @@
-# Collated datasets
+# examples_martinjhnhadley-examples-101
 
 This repository contains a selection of datasets that are useful for teaching reproducible research and data visualisation methods with R.
 
