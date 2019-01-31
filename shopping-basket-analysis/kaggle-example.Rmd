@@ -1,0 +1,51 @@
+---
+title: "instacart-market-basket-analysis"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(arules)
+library(methods)
+
+ordr_pr <- read_csv("data-instacart-market-basket-analysis/order_products__prior.csv")
+prods <- read_csv("data-instacart-market-basket-analysis//products.csv")
+
+small_order_pr <- ordr_pr %>%
+  sample_frac(0.2)
+
+small_prods <- prods %>%
+  sample_frac(0.2)
+
+
+```
+
+```{r}
+# get the shopping baskets
+order_baskets <- small_order_pr %>% 
+  inner_join(small_prods, by="product_id") %>% 
+  group_by(order_id) %>%
+  summarise(basket = as.vector(list(product_name)))
+
+transactions <- as(order_baskets$basket, "transactions")
+
+support <- 0.00008
+itemsets <- apriori(transactions, parameter = list(target = "frequent itemsets", supp=support, minlen=2), control = list(verbose = FALSE))
+
+itemsets
+
+```
+
+
+
+
+
+

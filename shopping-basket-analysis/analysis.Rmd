@@ -1,0 +1,130 @@
+---
+title: "Shopping Cart Analysis"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Import Data
+
+```{r}
+library("tidyverse")
+library("arules")
+library("arulesViz")
+
+items <- read_csv("data/items.csv")
+customers <- read_csv("data/customers.csv")
+orders <- read_csv("data/orders.csv")
+purchase_orders <- read_csv("data/purchase_orders.csv")
+```
+
+# Looking at similar baskets
+
+Create a set of baskets:
+
+```{r}
+order_baskets <- orders %>% 
+  inner_join(items, by="item.id") %>% 
+  group_by(order.id) %>%
+  summarise(basket = as.vector(list(item.name)))
+```
+
+Create a `transactions` object:
+
+```{r}
+transactions <- as(order_baskets$basket, "transactions")
+```
+
+Find item sets with a support threshold of 5% (5 baskets)
+
+```{r}
+support <- 0.05
+frequently_purchased_together <-
+  apriori(
+    transactions,
+    parameter = list(
+      target = "frequent itemsets",
+      supp = support,
+      minlen = 2
+    ),
+    control = list(verbose = FALSE)
+  )
+summary(frequently_purchased_together)
+```
+
+## Just a graph of connected items
+
+Create a rules object
+
+```{r}
+rules <- apriori(transactions, 
+                 parameter = list(supp = 0.0001, conf = 0.0001, target = "rules",
+                                  minlen = 2, 
+                                  maxlen = 3))
+# remove redundant rules
+rules <- rules[!is.redundant(rules)]
+```
+
+Convert to a tibble of rules!!!
+
+```{r}
+rules_tib <- DATAFRAME(rules) %>%
+  as_tibble() %>%
+  rename(from = LHS,
+         to = RHS) %>%
+  mutate_if(is.factor, as.character)
+
+rules_tib %>%
+  mutate(from = str_replace_all(from, "[{}]", ""),
+         to = str_replace_all(to, "[{}]", "")) %>%
+  select(from, to, count)
+```
+
+
+# Looking at similar customers:
+
+A table of what was bought by each customer:
+
+```{r}
+purchase_orders %>%
+  left_join(orders) %>%
+  left_join(items) %>%
+  left_join(customers) %>%
+  group_by(customer.id, item.id) %>%
+  mutate(amount = n()) %>%
+  ungroup() %>%
+  select(customer.id, customer.name, item.name, amount) %>%
+  unique() %>%
+  spread(item.name, amount, fill = 0)
+```
+
+Items bought by each customer:
+
+```{r}
+purchase_orders %>%
+  left_join(orders) %>%
+  select(item.id, customer.id) %>%
+  group_by(item.id) %>%
+  summarise(customers.who.bought = list(map(customer.id, list))) %>%
+  left_join(items) %>%
+  select(item.name, customers.who.bought)
+```
+
+## Graph
+
+```{r}
+purchase_orders %>%
+  left_join(orders) %>%
+  select(item.id, customer.id) %>%
+  group_by(item.id)
+```
+
+
+
+
+
+
