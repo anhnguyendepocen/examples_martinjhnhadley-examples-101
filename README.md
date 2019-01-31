@@ -11,9 +11,9 @@ These datasets are (unless stated explicitly) **not** authored by me (Martin Joh
 - An installation of R [https://cran.r-project.org/](https://cran.r-project.org/)
 - An installation of RStudio [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
 
-# Working with these materials
+# Working with these materials (DATA ONLY)
 
-You will need to download the materials in this repository to your local computer, here's a short URL to get you to this page: [https://goo.gl/2LwAWh](https://goo.gl/2LwAWh).
+You will need to download the materials in this repository to your local computer, here's a short URL to get you to this page: [https://bit.ly/2MJz4T0](https://bit.ly/2MJz4T0). This is a specific branch of the materials which contains only data.
 
 Click on "Clone or download" and select "Download as ZIP".
 
