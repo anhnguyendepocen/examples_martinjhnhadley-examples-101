@@ -13,7 +13,7 @@ These datasets are (unless stated explicitly) **not** authored by me (Martin Joh
 
 # Working with these materials
 
-You will need to download the materials in this repository to your local computer, here's a short URL to get you to this page: [https://goo.gl/2LwAWh](https://goo.gl/2LwAWh).
+You will need to download the materials in this repository to your local computer, here's a short URL to get you to this page: [https://bit.ly/2MJz4T0](https://bit.ly/2MJz4T0).
 
 Click on "Clone or download" and select "Download as ZIP".
 
